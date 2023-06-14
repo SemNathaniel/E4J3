@@ -16,17 +16,20 @@ if(file_exists('db.class.php') && file_exists('user.class.php') && file_exists('
 $dbObj = new db();
 $results = '';
 $navBar = '';
-$bodyContent = '';
+$bodyText = '';
+$bodyImage = '';
 $titleName = '';
 $mModules = array();
 $pathToHome = '';
 $results = $dbObj->selectFunction("SELECT paginaTitel FROM `paginadata`;");
  foreach($results as $result){
-    print_r($result[0]);
-    $navBar .= '<a href="index.php?modules=' . $result[0] . '">' . $result[0] . '</a><br>';
+    $navBar .= '<a href="index.php?modules=' . $result[0] . '">' . $result[0] . '</a>';
     array_push($mModules, $result[0]);
 }
-
+$results = mainControllerFunction($mModules);
+$bodyText .= $results['text'];
+(isset($results['image'])) ? $bodyImage .= $results['image'] : $bodyImage .= '';
+$titleName .= $results['title'];
 $html = '
 <!DOCTYPE html>
 <html lang="en">
@@ -36,14 +39,19 @@ $html = '
 </head>
 <body>
 <header>
-    <img src="raketLogo.png" alt="logo van de rode raketten" class="logo">
-    <h1 class="siteTitel">FC Rode Raketten</h1>
+    <img src="images/raketLogo.png" alt="logo van de rode raketten" class="logo">
+    <h1 class="siteTitel">' . $titleName . '</h1>
     <div class="siteNavigatiebalk">
         ' . $navBar . '
     </div>
 </header>
 <main>
-    ' . $bodyContent . '
+    <div class="bodyText">
+    ' . $bodyText . '
+    </div>
+    <div class="bodyImage">
+    ' . $bodyImage . '
+    </div>
 </main>
 <footer>
     <h3>FC Rode Raketten®  Door Nathan ten Brink</h3>

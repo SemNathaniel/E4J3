@@ -1,15 +1,27 @@
 <?php
-$mControllerContentObj = new content();
-function mControllerFunction($givenTitleArray){
+function mainControllerFunction($givenTitleArray){
+    $errorArray = array(0 => false, 'text' => '<strong>ERROR 404</strong><br>Klik <a href="index.php?modules=home">hier!</a> om terug te keren naar de hoofdpagina', 'title' => 'ERROR');
+    $mainControllerContentObject = new content();
     if(isset($_GET['modules'])){
-        $amountOfTitles = count($givenTitleArray);
-        foreach($givenTitleArray as $givenTitle){
-            if($_GET['modules'] == $givenTitle && $amountOfTitles != 0 || $amountOfTitles <= 0){
-
+        if($_GET['modules'] != 'login' && $_GET['modules'] != 'teams'){
+            $amountOfTitles = count($givenTitleArray);
+            foreach($givenTitleArray as $givenTitle){
+                $amountOfTitles--;
+                if($_GET['modules'] == $givenTitle){
+                    return $mainControllerContentObject->turnDataToHtml($_GET['modules']);
+                } elseif($amountOfTitles == 0) {
+                    return $errorArray;
+                }
             }
+        } elseif($_GET['modules'] == 'login'){
+            return require_once(__DIR__ . DIRECTORY_SEPARATOR . 'login.php');
+        } elseif(isset($_GET['teams'])){
+            return $mainControllerContentObject->turnDataToHtml('teams', $_GET['teams']);
+        } else {
+            return $errorArray;
         }
     } else {
-         
+        return $errorArray;
     }
 }
 ?>

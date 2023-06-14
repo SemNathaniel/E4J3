@@ -1,0 +1,65 @@
+body{
+    background-image: url('images/grassBackground.jpg');
+    height: 100%;
+    margin: 0;
+    color: white;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+header {
+    margin: 0px;
+    background-color: darkred;
+    border: 5px solid black;
+    padding: 5px;
+    height: 200px;
+    text-align: center;
+}
+.logo {
+    height: 100px;
+    width: 115px;
+}
+.leatherBall{
+    width: 100px;
+    height: 100px;
+    float: right;
+}
+.siteNavigatiebalk a {
+    text-decoration: none;
+    color: white;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 10px;
+    padding-top: 0px;
+}
+main {
+    color: black;
+    background-color: rgb(255, 255, 255, 0.8);
+    font-size: medium;
+    border: 3px solid darkred;
+    padding: 5px;
+    margin: 70px;
+    border-radius: 2px;
+}
+.player{
+    float: right;
+    width: 177px;
+    height: 126px;
+}
+.teamsButtons{
+    color: black;
+    padding-right: 3px;
+    padding-left: 3px;
+    border: 1px solid black;
+}
+table{
+    border: 1px solid black;
+}
+th{
+    color: black;
+}
+footer{
+    bottom: 0;
+    background-color: darkred;
+    padding: 3px;
+    margin-left: 70px;
+    margin-right: 70px;
+}
