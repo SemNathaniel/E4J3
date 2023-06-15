@@ -15,6 +15,8 @@ function mainControllerFunction($givenTitleArray){
             }
         } elseif($_GET['modules'] == 'login'){
             return require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'login' . DIRECTORY_SEPARATOR . 'index.php');
+        } elseif($_GET['modules'] == 'logout'){
+            return array(0 => 'logout', 'title' => 'logged out', 'U bent succesvol uitgelogd!');
         } elseif(isset($_GET['teams']) || $_GET['modules'] == 'teams'){
             return require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'teams' . DIRECTORY_SEPARATOR . 'index.php');
         } else {
