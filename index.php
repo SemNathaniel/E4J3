@@ -1,18 +1,9 @@
 <?php
-//$titlename needs to be gotten from the $_GET otherwise need to go to home
-//content class needs to be filled with some functions that ask what page we are going to fill so the html can be structured well from there 
-//$navBar needs to be made after we get the pages from the db using db.class.php
-//make a controller to deal with content
-if(file_exists('db.class.php') && file_exists('user.class.php') && file_exists('config.php') && file_exists('content.class.php')){
-    require_once('db.class.php');
-    require_once('config.php');
-    require_once('user.class.php');
-    require_once('content.class.php');
-    require_once('mainController.php');
-} else {
-    echo 'een van de required files was niet aanwezig';
-    die();
-}
+require_once('config.php');
+require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'db.class.php');
+require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'user.class.php');
+require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'content.class.php');
+require_once('mainController.php');
 $dbObj = new db();
 $results = '';
 $navBar = '';
@@ -41,7 +32,7 @@ $html = '
 <body>
 <header>
     <div class="siteNaamEnTitel">
-    <h1 class="rodeRaketNaam">    <img src="images/raketLogo.png" alt="logo van de rode raketten" class="logo">Rode Raketten</h1>
+    <h1 class="rodeRaketNaam"><img src="images/raketLogo.png" alt="logo van de rode raketten" class="logo">Rode Raketten</h1>
     <h3 class="siteTitel">' . $titleName . '</h3>
     </div>
     <div class="siteNavigatiebalk">

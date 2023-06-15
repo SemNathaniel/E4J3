@@ -6,9 +6,9 @@ body{
     font-family: 'Courier New', Courier, monospace;
 }
 header {
-    background-image: url('images/headerBackground.png');
-    background-position: right;
-    background-repeat: no-repeat;
+    background-image: url('images/headerBackground.png'), url('images/headerPattern.png');
+    background-position: right, right;
+    background-repeat: no-repeat, no-repeat;
     background-color: rgb(119, 2, 2);
     border: 5px solid black;
     padding: 5px;
@@ -19,6 +19,9 @@ header {
     font-family: Courier New (monospace);
     padding-bottom: 0;
     margin-bottom: 0;
+}
+.rodeRaketNaam {
+    font-size: 33px;
 }
 .logo {
     text-align: left;

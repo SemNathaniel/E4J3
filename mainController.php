@@ -14,12 +14,14 @@ function mainControllerFunction($givenTitleArray){
                 }
             }
         } elseif($_GET['modules'] == 'login'){
-            return require_once(__DIR__ . DIRECTORY_SEPARATOR . 'login.php');
+            return require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'login' . DIRECTORY_SEPARATOR . 'index.php');
         } elseif(isset($_GET['teams']) || $_GET['modules'] == 'teams'){
-            return require_once(__DIR__ . DIRECTORY_SEPARATOR . 'teams.php');
+            return require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'teams' . DIRECTORY_SEPARATOR . 'index.php');
         } else {
             return $errorArray;
         }
+    } elseif(isset($_GET['team'])){
+        return require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . 'teams' . DIRECTORY_SEPARATOR . 'index.php');
     } else {
         return $mainControllerContentObject->turnDataToHtml('home');
     }
