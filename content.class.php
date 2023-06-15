@@ -8,7 +8,7 @@ class content{
     }
 
     public function turnDataToHtml($selectedModule = null, $selectedTeam = null){
-        if($selectedModule != null){
+        if($selectedModule != null && $selectedModule != 'teams'){
             $this->result = $this->dbObj->selectFunction("SELECT * FROM `paginadata` WHERE paginaTitel = BINARY('" . $selectedModule . "');");
             if($this->result[0] != false){
                 if($this->result[0][3] != ''){
@@ -19,8 +19,8 @@ class content{
             } else {
                 return array(0 => false, 'text' => '<strong>ERROR 404</strong><br>Klik <a href="index.php?modules=home">hier!</a> om terug te keren naar de hoofdpagina', 'title' => 'ERROR');
             }
-        } elseif ($selectedTeam != null && $selectedModule == null){
-            
+        } elseif ($selectedTeam != null && $selectedModule == null || $selectedTeam != null && $selectedModule = 'teams'){
+            $this->result = $this->dbObj->selectFunction("");
         }
     }
 }

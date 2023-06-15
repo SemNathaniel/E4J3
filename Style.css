@@ -3,19 +3,28 @@ body{
     height: 100%;
     margin: 0;
     color: white;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 header {
-    margin: 0px;
-    background-color: darkred;
+    background-image: url('images/headerBackground.png');
+    background-position: right;
+    background-repeat: no-repeat;
+    background-color: rgb(119, 2, 2);
     border: 5px solid black;
     padding: 5px;
     height: 200px;
-    text-align: center;
+}
+.siteNaamEnTitel {
+    text-align: left;
+    font-family: Courier New (monospace);
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 .logo {
-    height: 100px;
-    width: 115px;
+    text-align: left;
+    height: 80px;
+    width: 80px;
+
 }
 .leatherBall{
     width: 100px;
@@ -29,6 +38,9 @@ header {
     padding-right: 3px;
     padding-bottom: 10px;
     padding-top: 0px;
+}
+a:hover {
+    font-style: oblique;
 }
 main {
     color: black;
@@ -58,6 +70,8 @@ th{
 }
 footer{
     bottom: 0;
+    position: fixed;
+    width: 80%;
     background-color: darkred;
     padding: 3px;
     margin-left: 70px;

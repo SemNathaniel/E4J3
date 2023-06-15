@@ -26,6 +26,7 @@ $results = $dbObj->selectFunction("SELECT paginaTitel FROM `paginadata`;");
     $navBar .= '<a href="index.php?modules=' . $result[0] . '">' . $result[0] . '</a>';
     array_push($mModules, $result[0]);
 }
+$navBar .= '<a href="index.php?modules=teams">teams</a>';
 $results = mainControllerFunction($mModules);
 $bodyText .= $results['text'];
 (isset($results['image'])) ? $bodyImage .= $results['image'] : $bodyImage .= '';
@@ -34,13 +35,15 @@ $html = '
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>' . $titleName . '</title><!--Vul opdracht naam in en de week-->
+    <title>' . $titleName . ' | Rode Raketten</title><!--Vul opdracht naam in en de week-->
     <link href="Style.css" rel="stylesheet"><!--Css werkt met class attribute-->
 </head>
 <body>
 <header>
-    <img src="images/raketLogo.png" alt="logo van de rode raketten" class="logo">
-    <h1 class="siteTitel">' . $titleName . '</h1>
+    <div class="siteNaamEnTitel">
+    <h1 class="rodeRaketNaam">    <img src="images/raketLogo.png" alt="logo van de rode raketten" class="logo">Rode Raketten</h1>
+    <h3 class="siteTitel">' . $titleName . '</h3>
+    </div>
     <div class="siteNavigatiebalk">
         ' . $navBar . '
     </div>
@@ -54,7 +57,7 @@ $html = '
     </div>
 </main>
 <footer>
-    <h3>FC Rode Raketten®  Door Nathan ten Brink</h3>
+    <h3>FC Rode Raketten® <img src="images/raketLogo.png" alt="logo van de rode raketten" width="40px" height="40px" style="float: right;"></h3>
 </footer>
 </body>
 </html>';
