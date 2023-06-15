@@ -15,13 +15,13 @@ function mainControllerFunction($givenTitleArray){
             }
         } elseif($_GET['modules'] == 'login'){
             return require_once(__DIR__ . DIRECTORY_SEPARATOR . 'login.php');
-        } elseif(isset($_GET['teams'])){
-            return $mainControllerContentObject->turnDataToHtml('teams', $_GET['teams']);
+        } elseif(isset($_GET['teams']) || $_GET['modules'] == 'teams'){
+            return require_once(__DIR__ . DIRECTORY_SEPARATOR . 'teams.php');
         } else {
             return $errorArray;
         }
     } else {
-        return $errorArray;
+        return $mainControllerContentObject->turnDataToHtml('home');
     }
 }
 ?>
