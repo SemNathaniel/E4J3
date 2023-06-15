@@ -1,5 +1,7 @@
 body{
+    background-color: black;
     background-image: url('images/grassBackground.jpg');
+    background-repeat: no-repeat;
     height: 100%;
     margin: 0;
     color: white;
@@ -12,7 +14,7 @@ header {
     background-color: rgb(119, 2, 2);
     border: 5px solid black;
     padding: 5px;
-    height: 200px;
+    height: relative;
 }
 .siteNaamEnTitel {
     text-align: left;

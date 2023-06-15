@@ -11,18 +11,19 @@ class user {
 
 
     public function userLogin($username, $password){
-        $sql = "SELECT * FROM users WHERE username = BINARY('" . $username . "') AND userpass = password('" . $password . "');";
+        $sql = "SELECT * FROM users WHERE username = BINARY('" . $username . "') AND userpass = PASSWORD('" . $password . "');";
     	$this->result = $this->dbObj->selectFunction($sql);
-        if($this->result[0] !== true){
-            $_SESSION['userStatus'] = 0; 
+        if($this->result[0] != true){
+            $_SESSION['userStatus'] = 0;
+            return 'Niet ingelogd!';
         } else {
             $_SESSION['userStatus'] = 1;
+            return 'Ingelogd!';
         }
-        $_SESSION['userId'] = $this->result[1][0][0];
+        $_SESSION['userId'] = $this->result[0][0];
         return $this->dbObj;
     }
     public function isUserLoggedIn(){
-        session_start();
         if(!isset($_SESSION['userStatus'])){
             $_SESSION['userStatus'] = 0;
         } else {
@@ -30,7 +31,7 @@ class user {
                 return 1;
             } else {
                 $_SESSION['userStatus'] = 0;
-                return false;
+                return 0;
             }
         }
     }
