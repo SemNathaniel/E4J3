@@ -9,7 +9,7 @@ class content{
 
     public function turnDataToHtml($selectedModule = null, $selectedTeam = null, $toEdit = 0, $returnFirst = false){
         if($returnFirst != false){
-            $this->result = $this->dbObj->selectFunction("SELECT * FROM `paginadata` WHERE paginaId = '1';");
+            $this->result = $this->dbObj->selectFunction("SELECT * FROM `paginadata` WHERE 1 LIMIT 1;");
             if($this->result[0] != false){
                 if($this->result[0][3] != ''){
                     return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="textTemplate' . $this->result[0][4] . '">' . $this->result[0][2] . '</p>', 'img' => '<img src="' . 'images' . DIRECTORY_SEPARATOR . $this->result[0][3] . '" class="bodyImg">');
@@ -44,10 +44,10 @@ class content{
             }
         } else {
             if($selectedModule == null && $selectedTeam != null){
-                return '<br><br><form action="index.php?modules=edit&dataToEdit=' . $selectedTeam . '" method="post" enctype="multipart/form-data">De Titel mag niet een duplicaat zijn van een andere titel!<br>titel: <input type="text" name="editTitle" value="' . $selectedTeam . '"<br><br>content:<br><textarea class="textEdit" name="editText"></textarea><br>U kan alleen maar files uploaden met de extensie ".jpg" of ".png"!<br>Afbeelding: <input type="file" name="editImage"><br><input type="submit" value="Aanpassingen aanbrengen" name="submitEdit">
+                return '<br><br><form action="index.php?modules=edit&dataToEdit=' . $selectedTeam . '" method="post" enctype="multipart/form-data">typ "DELETE" in de titel- en textbalk om verwijderen te bevestigen!<br><input type="checkbox" id="DEL" name="delete" value="delete"><label for="DEL">Delete</label><br>De Titel mag niet een duplicaat zijn van een andere titel!<br>titel: <input type="text" required name="editTitle" value="' . $selectedTeam . '"><br><br>content:<br><textarea required class="textEdit" name="editText"></textarea><br>U kan alleen maar files uploaden met de extensie ".jpg" of ".png"!<br>Afbeelding: <input type="file" name="editImage"><br><input type="submit" value="Aanpassingen aanbrengen" name="submitEdit">
                 </form>';
             } elseif($selectedModule != null && $selectedTeam == null){
-                return '<br><br><form action="index.php?modules=edit&dataToEdit=' . $selectedModule . '" method="post" enctype="multipart/form-data">titel: <input type="text" name="editTitle" value="' . $selectedModule . '"<br><br>content:<br><textarea class="textEdit" name="editText"></textarea><br>U kan alleen maar files uploaden met de extensie ".jpg" of ".png"!<br>Afbeelding: <input type="file" name="editImage"><br><input type="submit" value="Aanpassingen aanbrengen" name="submitEdit">
+                return '<br><br><form action="index.php?modules=edit&dataToEdit=' . $selectedModule . '" method="post" enctype="multipart/form-data">typ "DELETE" in de titel- en textbalk om verwijderen te bevestigen!<br><input type="checkbox" id="DEL" name="delete" value="delete"><label for="DEL">Delete</label><br>titel: <input required type="text" name="editTitle" value="' . $selectedModule . '"><br><br>content:<br><textarea class="textEdit" required name="editText"></textarea><br>U kan alleen maar files uploaden met de extensie ".jpg" of ".png"!<br>Afbeelding: <input type="file" name="editImage"><br><input type="submit" value="Aanpassingen aanbrengen" name="submitEdit">
                 </form>';
             }
         }

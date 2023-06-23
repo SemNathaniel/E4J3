@@ -7,6 +7,17 @@ $fileDestination = ROOT_URL;
 $dbObj = new db();
 $contentObject = new content();
 if(!empty($_POST) && isset($_SESSION['teamOrModule'])){
+    if(isset($_POST['delete'])){
+        if($_POST['delete'] == 'delete' && !empty($_POST['editTitle']) && !empty($_POST['editText'])){
+            if($_POST['editTitle'] == 'DELETE' && $_POST['editText'] == 'DELETE'){
+                if($_SESSION['teamOrModule'] == 'team'){
+                    $dbObj->otherSqlFunction("DELETE FROM `teamsdata` WHERE `teamNaam` = '" . $_GET['dataToEdit'] . "';");
+                } elseif($_SESSION['teamOrModule'] == 'module'){
+                    $dbObj->otherSqlFunction("DELETE FROM `paginadata` WHERE `paginaTitel` = '" . $_GET['dataToEdit'] . "';");
+                }
+            }
+        }
+    }
     if(!empty($_POST['editTitle']) && !empty($_POST['editText']) && !empty($_FILES['editImage']['size'])){
         $fileSize = $_FILES['editImage']['size'];
         if($fileSize > 0){
