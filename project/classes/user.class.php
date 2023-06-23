@@ -13,25 +13,22 @@ class user {
     public function userLogin($username, $password){
         $sql = "SELECT * FROM users WHERE username = BINARY('" . $username . "') AND userpass = PASSWORD('" . $password . "');";
     	$this->result = $this->dbObj->selectFunction($sql);
-        if($this->result[0] != true){
+        if($this->result[0] != true){// userdata 
             $_SESSION['userStatus'] = 0;
-            return 'Niet ingelogd!';
+            return array(0 => false, 'text' => 'Niet ingelogd!');
         } else {
             $_SESSION['userStatus'] = 1;
-            return 'Ingelogd!';
+            return array(0 => true, 'text' => 'Ingelogd!');
         }
-        $_SESSION['userId'] = $this->result[0][0];
         return $this->dbObj;
     }
-    public function isUserLoggedIn(){
+    public static function isUserLoggedIn(){// static function op w3
         if(!isset($_SESSION['userStatus'])){
             $_SESSION['userStatus'] = 0;
         } else {
             if($_SESSION['userStatus'] == 1){
-                return 1;
             } else {
                 $_SESSION['userStatus'] = 0;
-                return 0;
             }
         }
     }
@@ -41,10 +38,9 @@ class user {
         return $this->dbObj->otherSqlFunction($sql);
     }
 
-    public function logoutUser(){
+    public function logoutUser(){// static toevoegen
         if(isset($_SESSION)){
             $_SESSION['userStatus'] = 0;
-            $_SESSION['userId'] = null;
             session_unset();
         }
     }

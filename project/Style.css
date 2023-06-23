@@ -31,11 +31,6 @@ header {
     width: 80px;
 
 }
-.leatherBall{
-    width: 100px;
-    height: 100px;
-    float: right;
-}
 .siteNavigatiebalk a {
     text-decoration: none;
     color: white;
@@ -43,6 +38,8 @@ header {
     padding-right: 3px;
     padding-bottom: 10px;
     padding-top: 0px;
+    word-wrap: break-word;
+    max-width: 45%;
 }
 a:hover {
     font-style: oblique;
@@ -51,34 +48,32 @@ main {
     color: black;
     background-color: rgb(255, 255, 255, 0.8);
     font-size: medium;
+    width: 80%;
+    word-wrap: break-word;
     border: 3px solid darkred;
     padding: 5px;
     margin: 70px;
     border-radius: 2px;
+    padding-bottom: 15px;
 }
-.player{
-    float: right;
-    width: 177px;
-    height: 126px;
+.textEdit {
+    text-align: left;
+    width: 80%;
+    min-height: 15px;
+    resize: vertical;
+    height: fit-content;
 }
-.teamsButtons{
-    color: black;
-    padding-right: 3px;
-    padding-left: 3px;
-    border: 1px solid black;
-}
-table{
-    border: 1px solid black;
-}
-th{
-    color: black;
+.bodyImg{
+    width: auto;
+    height: auto;
+    max-height: 300px;
 }
 footer{
     bottom: 0;
-    position: fixed;
-    width: 80%;
+    position: static;
+    width: 100%;
     background-color: darkred;
-    padding: 3px;
-    margin-left: 70px;
-    margin-right: 70px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 50px;
 }

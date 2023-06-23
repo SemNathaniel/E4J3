@@ -23,7 +23,7 @@ class db {
                         return $records;
                     }
                 } else {
-                    return array (false ,'No records found');
+                    return array(false ,'No records found');
                 }
             } else {
                 return array(false, 'Query failed' . $this->dbcon->error);
@@ -35,18 +35,16 @@ class db {
     public function otherSqlFunction($sql){
         if(!empty($sql)){
             $sql = trim($sql);
-            if($this->result = $this->dbcon->query($sql)){
-                if($this->result == true){
-                    return true;
-                } else {
-                    return 'No records found';
+            try{
+                if($this->dbcon->query($sql)){
+                    return array(true);
                 }
-            } else {
-                return 'Query failed' . $this->dbcon->error;
+            } catch(Exception){
+                return array(false, 'there was a problem in the db class:<br>');
             }
         } else {
             return 'no query given';
         }
-    }
+    }   
 }
 ?>
