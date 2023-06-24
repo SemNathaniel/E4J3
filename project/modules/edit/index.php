@@ -11,14 +11,23 @@ if(!empty($_POST) && isset($_SESSION['teamOrModule'])){
         if($_POST['delete'] == 'delete' && !empty($_POST['editTitle']) && !empty($_POST['editText'])){
             if($_POST['editTitle'] == 'DELETE' && $_POST['editText'] == 'DELETE'){
                 if($_SESSION['teamOrModule'] == 'team'){
-                    $dbObj->otherSqlFunction("DELETE FROM `teamsdata` WHERE `teamNaam` = '" . $_GET['dataToEdit'] . "';");
+                    $result = $dbObj->selectFunction("SELECT teamId FROM `teamsdata` WHERE `teamNaam` = '" . $_GET['dataToEdit'] . "'");
+                    if($result[0][0] != 1){
+                        $dbObj->otherSqlFunction("DELETE FROM `teamsdata` WHERE `teamNaam` = '" . $_GET['dataToEdit'] . "';");
+                    } else {
+                        $textToReturn .= '<strong>Dit team mag niet verwijderd worden pas hem aan</strong><br>';
+                    }
                 } elseif($_SESSION['teamOrModule'] == 'module'){
+                    $result = $dbObj->selectFunction("SELECT paginaId FROM `paginadata` WHERE `paginaTitel` = '" . $_GET['dataToEdit'] . "'");
+                    if($result[0][0] != 1){
                     $dbObj->otherSqlFunction("DELETE FROM `paginadata` WHERE `paginaTitel` = '" . $_GET['dataToEdit'] . "';");
+                    } else {
+                        $textToReturn .= '<strong>Deze module mag niet verwijderd worden pas hem aan</strong><br>';
+                    }
                 }
             }
         }
-    }
-    if(!empty($_POST['editTitle']) && !empty($_POST['editText']) && !empty($_FILES['editImage']['size'])){
+    } elseif(!empty($_POST['editTitle']) && !empty($_POST['editText']) && !empty($_FILES['editImage']['size'])){
         $fileSize = $_FILES['editImage']['size'];
         if($fileSize > 0){
             $file = pathinfo($_FILES['editImage']['name']);

@@ -1,7 +1,0 @@
-CREATE TABLE IF NOT EXISTS `newdata`(
-	teamId INT(9) AUTO_INCREMENT PRIMARY KEY,
-	teamNaam VARCHAR(20) UNIQUE,
-	tekstvak1 TEXT,
-    afbeelding1 TEXT,
-    templateType INT(1)
-);
