@@ -12,9 +12,9 @@ class content{
             $this->result = $this->dbObj->selectFunction("SELECT * FROM `paginadata` WHERE 1 LIMIT 1;");
             if($this->result[0] != false){
                 if($this->result[0][3] != ''){
-                    return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="textTemplate' . $this->result[0][4] . '">' . $this->result[0][2] . '</p>', 'img' => '<img src="' . 'images' . DIRECTORY_SEPARATOR . $this->result[0][3] . '" class="bodyImg">');
+                    return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="text">' . $this->result[0][2] . '</p>', 'img' => '<img src="' . 'images' . DIRECTORY_SEPARATOR . $this->result[0][3] . '" class="bodyImg">');
                 } else {
-                    return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="textTemplate' . $this->result[0][4] . '">' . $this->result[0][2] . '</p>');
+                    return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="text">' . $this->result[0][2] . '</p>');
                 }
             }
         }
@@ -23,9 +23,9 @@ class content{
                 $this->result = $this->dbObj->selectFunction("SELECT * FROM `paginadata` WHERE paginaTitel = BINARY('" . $selectedModule . "');");
                 if($this->result[0] != false){
                     if($this->result[0][3] != ''){
-                        return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="textTemplate' . $this->result[0][4] . '">' . $this->result[0][2] . '</p>', 'img' => '<img src="' . 'images' . DIRECTORY_SEPARATOR . $this->result[0][3] . '" class="bodyImg">');
+                        return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="text">' . $this->result[0][2] . '</p>', 'img' => '<img src="' . 'images' . DIRECTORY_SEPARATOR . $this->result[0][3] . '" class="bodyImg">');
                     } else {
-                        return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="textTemplate' . $this->result[0][4] . '">' . $this->result[0][2] . '</p>');
+                        return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="text">' . $this->result[0][2] . '</p>');
                     }
                 } else {
                     return array(0 => false, 'text' => '<strong>ERROR 404</strong><br>Klik <a href="index.php?modules=home">hier!</a> om terug te keren naar de hoofdpagina', 'title' => 'ERROR');
@@ -34,9 +34,9 @@ class content{
                 $this->result = $this->dbObj->selectFunction("SELECT * FROM `teamsdata` WHERE teamNaam = '" . $selectedTeam . "';");
                 if($this->result[0] != false){
                     if($this->result[0][3] != ''){
-                        return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="textTemplate' . $this->result[0][4] . '">' . $this->result[0][2] . '</p>', 'img' => '<img src="' . 'images' . DIRECTORY_SEPARATOR . $this->result[0][3] . '" class="bodyImg">');
+                        return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="text">' . $this->result[0][2] . '</p>', 'img' => '<img src="' . 'images' . DIRECTORY_SEPARATOR . $this->result[0][3] . '" class="bodyImg">');
                     } else {
-                        return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="textTemplate' . $this->result[0][4] . '">' . $this->result[0][2] . '</p>');
+                        return array(0 => true, 'title' => $this->result[0][1], 'text' => '<p class="text">' . $this->result[0][2] . '</p>');
                     }
                 } else {
                     return array(0 => false, 'text' => '<strong>ERROR 404</strong><br>Klik <a href="index.php?modules=home">hier!</a> om terug te keren naar de hoofdpagina', 'title' => 'ERROR');

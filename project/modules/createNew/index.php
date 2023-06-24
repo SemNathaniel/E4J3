@@ -18,15 +18,15 @@ if(!empty($_POST)){
                             $result = $dbObj->otherSqlFunction("INSERT INTO `teamsdata`(`teamNaam`, `tekstvak1`, `afbeelding1`) VALUES ('" . $_POST['newTitle'] . "','" . $_POST['newText'] . "','" . $fileName . $extension . "');");
                             print_r($result);
                             if($result[0] != true){
-                                $textToReturn = 'check alle data die je aangemaakt hebt<br>';
+                                $textToReturn = 'check alle data die je aangemaakt hebt<br>of dat er geen duplicaten zijn<br>';
                             } else {
                                 header('Location: index.php?modules=teams');
                                 exit;
                             }
                         } elseif($_POST['teamOrModule'] == 'module'){
-                            $result = $dbObj->otherSqlFunction("INSERT INTO `paginadata`(`paginaTitel`, `tekstvak`, `afbeelding`) VALUES ('" . $_POST['newTitle'] . "','" . $_POST['newText'] . "','" . $fileName . $extension . "');");
+                            $result = $dbObj->otherSqlFunction("INSERT INTO `paginadata`(`paginaTitel`, `tekstvak1`, `afbeelding1`) VALUES ('" . $_POST['newTitle'] . "','" . $_POST['newText'] . "','" . $fileName . $extension . "');");
                             if($result[0] != true){
-                                $textToReturn = 'check alle data die je aangemaakt hebt<br>';
+                                $textToReturn = 'check alle data die je aangemaakt hebt<br>of dat er geen duplicaten zijn<br>';
                             } else {
                                 header('Location: index.php?modules=' . $_POST['newTitle']);
                                 exit;
@@ -40,15 +40,15 @@ if(!empty($_POST)){
         if($_POST['teamOrModule'] == 'team'){
             $result = $dbObj->otherSqlFunction("INSERT INTO `teamsdata`(`teamNaam`, `tekstvak1`, `afbeelding1`) VALUES ('" . $_POST['newTitle'] . "','" . $_POST['newText'] . "','');");
             if($result[0] != true){
-                $textToReturn = 'check alle data die je aangemaakt hebt<br>';
+                $textToReturn = 'check alle data die je aangemaakt hebt<br>of dat er geen duplicaten zijn<br>';
             } else {
                 header('Location: index.php?modules=teams');
                 exit;
             }
         } elseif($_POST['teamOrModule'] == 'module'){
-            $result = $dbObj->otherSqlFunction("INSERT INTO `paginadata`(`paginaTitel`, `tekstvak`, `afbeelding`) VALUES ('" . $_POST['newTitle'] . "','" . $_POST['newText'] . "','');");
+            $result = $dbObj->otherSqlFunction("INSERT INTO `paginadata`(`paginaTitel`, `tekstvak1`, `afbeelding1`) VALUES ('" . $_POST['newTitle'] . "','" . $_POST['newText'] . "','');");
             if($result[0] != true){
-                $textToReturn = 'check alle data die je aangemaakt hebt<br>';
+                $textToReturn = 'check alle data die je aangemaakt hebt<br>of dat er geen duplicaten zijn<br>';
             } else {
                 header('Location: index.php?modules=' . $_POST['newTitle']);
                 exit;

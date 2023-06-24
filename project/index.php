@@ -5,6 +5,9 @@ require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 
 require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'user.class.php');
 require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . 'content.class.php');
 require_once('mainController.php');
+if(file_exists('initialize.php')){
+    require_once('initialize.php');
+}
 $dbObj = new db();
 $userObject = new user();
 $contentObject = new content();

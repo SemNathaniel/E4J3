@@ -40,7 +40,7 @@ class db {
                     return array(true);
                 }
             } catch(Exception){
-                return array(false, 'there was a problem in the db class:<br>');
+                return array(false);
             }
         } else {
             return 'no query given';

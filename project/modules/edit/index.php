@@ -36,7 +36,7 @@ if(!empty($_POST) && isset($_SESSION['teamOrModule'])){
                                 exit;
                             }
                         } elseif($_SESSION['teamOrModule'] == 'module'){
-                            $result = $dbObj->otherSqlFunction("UPDATE `paginadata` SET `paginaTitel`='" . $_POST['editTitle'] . "',`tekstvak`='" . $_POST['editText'] . "',`afbeelding`='" . $fileName . $extension . "' WHERE `paginaTitel` = '" . $_GET['dataToEdit'] . "';");
+                            $result = $dbObj->otherSqlFunction("UPDATE `paginadata` SET `paginaTitel`='" . $_POST['editTitle'] . "',`tekstvak1`='" . $_POST['editText'] . "',`afbeelding1`='" . $fileName . $extension . "' WHERE `paginaTitel` = '" . $_GET['dataToEdit'] . "';");
                             if($result[0] != true){
                                 $textToReturn = 'check alle data die je aangepast hebt<br>';
                             } else {
@@ -58,7 +58,7 @@ if(!empty($_POST) && isset($_SESSION['teamOrModule'])){
                 exit;
             }
         } elseif($_SESSION['teamOrModule'] == 'module'){
-            $result = $dbObj->otherSqlFunction("UPDATE `paginadata` SET `paginaTitel`='" . $_POST['editTitle'] . "',`tekstvak`='" . $_POST['editText'] . "',`afbeelding`='' WHERE `paginaTitel` = '" . $_GET['dataToEdit'] . "';");
+            $result = $dbObj->otherSqlFunction("UPDATE `paginadata` SET `paginaTitel`='" . $_POST['editTitle'] . "',`tekstvak1`='" . $_POST['editText'] . "',`afbeelding1`='' WHERE `paginaTitel` = '" . $_GET['dataToEdit'] . "';");
             if($result[0] != true){
                 $textToReturn = 'check alle data die je aangepast hebt<br>';
             } else {

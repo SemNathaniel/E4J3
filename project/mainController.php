@@ -17,7 +17,7 @@ function mainControllerFunction($givenTitleArray){
         } elseif($_GET['modules'] == 'login' && $_SESSION['userStatus'] != 1 || $_GET['modules'] == 'edit' && $_SESSION['userStatus'] == 1 || $_GET['modules'] == 'createNew' && $_SESSION['userStatus'] == 1 || $_GET['modules'] == 'contact'){
             return require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $_GET['modules'] . DIRECTORY_SEPARATOR . 'index.php');
         } elseif($_GET['modules'] == 'login' && $_SESSION['userStatus'] == 1){
-            return array(0 => true, 'title' => 'al ingelohd', 'text' => 'U bent al ingelogd!<br>log eerst uit voordat u opnieuw inlogd!');
+            return array(0 => true, 'title' => 'al ingelogd', 'text' => 'U bent al ingelogd!<br>log eerst uit voordat u opnieuw inlogd!');
         } elseif($_GET['modules'] == 'logout' && $_SESSION['userStatus'] == 1){
             $userObject->logoutUser();
             $_SESSION['userStatus'] = 0;
