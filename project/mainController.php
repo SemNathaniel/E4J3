@@ -4,7 +4,7 @@ function mainControllerFunction($givenTitleArray){
     $errorArray = array(0 => false, 'text' => '<strong>ERROR 404</strong><br>Klik <a href="index.php?modules=home">hier!</a> om terug te keren naar de hoofdpagina', 'title' => 'ERROR');
     $mainControllerContentObject = new content();
     if(isset($_GET['modules'])){
-        if($_GET['modules'] != 'login' && $_GET['modules'] != 'teams' && $_GET['modules'] != 'edit' && $_GET['modules'] != 'createNew' && $_GET['modules'] != 'logout'){
+        if($_GET['modules'] != 'login' && $_GET['modules'] != 'teams' && $_GET['modules'] != 'edit' && $_GET['modules'] != 'createNew' && $_GET['modules'] != 'logout' && $_GET['modules'] != 'contact'){
             $amountOfTitles = count($givenTitleArray);
             foreach($givenTitleArray as $givenTitle){
                 $amountOfTitles--;
@@ -14,7 +14,7 @@ function mainControllerFunction($givenTitleArray){
                     return $errorArray;
                 }
             }
-        } elseif($_GET['modules'] == 'login' && $_SESSION['userStatus'] != 1 || $_GET['modules'] == 'edit' && $_SESSION['userStatus'] == 1 || $_GET['modules'] == 'createNew' && $_SESSION['userStatus'] == 1 ){
+        } elseif($_GET['modules'] == 'login' && $_SESSION['userStatus'] != 1 || $_GET['modules'] == 'edit' && $_SESSION['userStatus'] == 1 || $_GET['modules'] == 'createNew' && $_SESSION['userStatus'] == 1 || $_GET['modules'] == 'contact'){
             return require_once(ROOT_URL . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $_GET['modules'] . DIRECTORY_SEPARATOR . 'index.php');
         } elseif($_GET['modules'] == 'login' && $_SESSION['userStatus'] == 1){
             return array(0 => true, 'title' => 'al ingelohd', 'text' => 'U bent al ingelogd!<br>log eerst uit voordat u opnieuw inlogd!');

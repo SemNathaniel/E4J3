@@ -24,10 +24,10 @@ $results = $dbObj->selectFunction("SELECT paginaTitel FROM `paginadata`;");
     $navBar .= '<a href="index.php?modules=' . $result[0] . '">' . $result[0] . '</a>';
     array_push($mModules, $result[0]);
 }
-$navBar .= '<a href="index.php?modules=teams">teams</a>';
+$navBar .= '<a href="index.php?modules=teams">teams</a><a href="index.php?modules=contact">contact</a>';
 $results = mainControllerFunction($mModules);
 if($_SESSION['userStatus'] == 1){
-    $navBar .= '<a href="index.php?modules=createNew">| create new |</a><a href="index.php?modules=edit"> edit |</a>';
+    $navBar .= '<a href="index.php?modules=createNew">create new</a><a href="index.php?modules=edit">edit</a>';
     $loginLogout .= '<a href="index.php?modules=logout" style="float: right;text-decoration: none;color: white;background-color: rgb(70,0,0);border: 2px solid rgb(40,0,0);">log out</a>';
 } else {
     $loginLogout .= '<a href="index.php?modules=login" style="float: right;text-decoration: none;color: white;background-color: rgb(70,0,0);border: 2px solid rgb(40,0,0);">log in</a>';
