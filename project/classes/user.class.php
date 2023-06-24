@@ -41,7 +41,6 @@ class user {
     public function logoutUser(){// static toevoegen
         if(isset($_SESSION)){
             $_SESSION['userStatus'] = 0;
-            session_unset();
         }
     }
 }
