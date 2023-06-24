@@ -1,0 +1,80 @@
+body{
+    background-color: black;
+    background-image: url('images/grassBackground.jpg');
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+header {
+    background-image: url('images/headerBackground.png'), url('images/headerPattern.png');
+    background-position: right, right;
+    background-repeat: no-repeat, no-repeat;
+    background-color: rgb(119, 2, 2);
+    border: 5px solid black;
+    padding: 5px;
+    height: relative;
+}
+.siteNaamEnTitel {
+    text-align: left;
+    font-family: Courier New (monospace);
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.rodeRaketNaam {
+    font-size: 33px;
+}
+.logo {
+    text-align: left;
+    height: 80px;
+    width: 80px;
+
+}
+.siteNavigatiebalk a {
+    text-decoration: none;
+    color: white;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 0px;
+    border-left: 1px rgb(255, 255, 255) solid;
+    border-radius: 10;
+    word-wrap: break-word;
+    max-width: 45%;
+}
+a:hover {
+    font-style: oblique;
+}
+main {
+    color: black;
+    background-color: rgb(255, 255, 255, 0.8);
+    font-size: medium;
+    width: 80%;
+    word-wrap: break-word;
+    border: 3px solid darkred;
+    padding: 5px;
+    margin: 70px;
+    border-radius: 2px;
+    padding-bottom: 15px;
+}
+textarea {
+    text-align: left;
+    width: 80%;
+    min-height: 15px;
+    resize: vertical;
+    height: fit-content;
+}
+.bodyImg{
+    width: auto;
+    height: auto;
+    max-height: 300px;
+}
+footer{
+    bottom: 0;
+    position: static;
+    width: 100%;
+    background-color: darkred;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 50px;
+}

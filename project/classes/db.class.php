@@ -4,7 +4,7 @@ class db {
     public $result = null;
 
     public function __construct(){
-        if(!empty(DBHOST) && !empty(DBUSER) && !empty(DBNAME)){
+         if(!empty(DBHOST) && !empty(DBUSER) && !empty(DBNAME)){
             $this->dbcon = new mysqli(DBHOST, DBUSER, DBPASS, DBNAME);
         }
         if(!empty($this->dbcon->connect_error)){
@@ -23,30 +23,28 @@ class db {
                         return $records;
                     }
                 } else {
-                    return 'No records found';
+                    return array(false ,'No records found');
                 }
             } else {
-                return 'Query failed' . $this->dbcon->error;
+                return array(false, 'Query failed' . $this->dbcon->error);
             }
         } else {
-            return 'no query given';
+            return array(false, 'no query given');
         }
     }
     public function otherSqlFunction($sql){
         if(!empty($sql)){
             $sql = trim($sql);
-            if($this->result = $this->dbcon->query($sql)){
-                if($this->result == true){
-                    return true;
-                } else {
-                    return 'No records found';
+            try{
+                if($this->dbcon->query($sql)){
+                    return array(true);
                 }
-            } else {
-                return 'Query failed' . $this->dbcon->error;
+            } catch(Exception){
+                return array(false);
             }
         } else {
             return 'no query given';
         }
-    }
+    }   
 }
 ?>
